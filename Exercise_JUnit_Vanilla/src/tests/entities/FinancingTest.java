@@ -95,4 +95,16 @@ public class FinancingTest {
 		});
 	}
 	
+/*
+ 	•entry
+		- Deve calcular corretamente o valor da entrada
+*/
+	@Test
+	public void entryShouldCalcCorretlyValues() {
+		Financing f = new Financing(10000.0, 2000.0, 80);
+		double expectedValue = 20000.0;
+		double x = f.entry();
+		Assertions.assertEquals(expectedValue, x);
+	}
+	
 }// end
