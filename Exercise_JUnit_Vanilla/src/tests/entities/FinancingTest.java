@@ -96,15 +96,27 @@ public class FinancingTest {
 	}
 	
 /*
- 	•entry
+ 	• entry
 		- Deve calcular corretamente o valor da entrada
 */
 	@Test
 	public void entryShouldCalcCorretlyValues() {
-		Financing f = new Financing(10000.0, 2000.0, 80);
+		Financing f = new Financing(100000.0, 2000.0, 80);
 		double expectedValue = 20000.0;
 		double x = f.entry();
 		Assertions.assertEquals(expectedValue, x);
 	}
 	
-}// end
+/*
+ 	 • quota
+		- Deve calcular corretamente o valor da prestação
+*/
+	@Test
+	public void quotaShouldCalcCorretlyValues() {
+		Financing f = new Financing(100000.0, 2000.0, 80);
+		double expectedValue = 1000.0;
+		double x = f.quota();
+		Assertions.assertEquals(expectedValue, x);
+	}
+	
+}
