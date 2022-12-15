@@ -73,4 +73,26 @@ public class FinancingTest {
 		});
 	}
 	
+/*
+ 	• setMonths
+		- Deve atualizar o valor quando os dados forem válidos
+		- Deve lançar IllegalArgumentException quando os dados não forem válidos
+ 
+*/
+	@Test
+	public void setMounthShouldUpdateValuesWhenValidArguments() {
+		Financing f = new Financing(100000.0, 2000.0, 80);
+		int expectedValue = 100;
+		f.setMonths(100);
+		Assertions.assertEquals(expectedValue, f.getMonths());
+	}
+	
+	@Test
+	public void setMounthShouldThrowExceptionWhenInvalidArguments() {
+		Assertions.assertThrows(IllegalArgumentException.class, ()->{
+			Financing f = new Financing(100000.0, 2000.0, 80);
+			f.setMonths(40);
+		});
+	}
+	
 }// end
