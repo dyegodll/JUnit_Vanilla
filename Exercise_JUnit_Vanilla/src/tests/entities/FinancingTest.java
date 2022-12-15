@@ -13,21 +13,17 @@ public class FinancingTest {
 		- Deve lançar IllegalArgumentException quando os dados não forem válidos
 */
 	@Test
-	public void constructorShouldGenerateObjectWhenValidArguments() {
-		Double totalAmount = 100000.0;
-		Double income = 2000.0;
-		Integer months = 80;
-		Financing f = new Financing(totalAmount, income, months);
-		Assertions.assertInstanceOf(Financing.class, f);
+	public void constructorShouldGenerateObjectWhenValidData() {
+		Financing f = new Financing(100000.0, 2000.0, 80);
+		Assertions.assertEquals(100000.0, f.getTotalAmount());
+		Assertions.assertEquals(2000.0, f.getIncome());
+		Assertions.assertEquals(80, f.getMonths());
 	}
 
 	@Test
-	public void constructorShouldThrowExceptionWhenInvalidArguments() {
+	public void constructorShouldThrowIllegalArgumentExceptionWhenInvalidArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			Double totalAmount = 100000.0;
-			Double income = 2000.0;
-			Integer months = 20;
-			new Financing(totalAmount, income, months);
+			new Financing(100000.0, 2000.0, 20);
 		});
 	}
 
@@ -37,7 +33,7 @@ public class FinancingTest {
 	  	- Deve lançar IllegalArgumentException quando os dados não forem válidos
 */
 	@Test
-	public void setTotalAmountShouldUpdateValuesWhenValidArguments() {
+	public void setTotalAmountShouldUpdateDataWhenValidArguments() {
 		Financing f = new Financing(100000.0, 2000.0, 80);
 		double expectedValue = 50000.0;
 		f.setTotalAmount(50000.0);
@@ -45,10 +41,10 @@ public class FinancingTest {
 	}
 
 	@Test
-	public void setTotalAmountShouldThrowsExceptiosWhenInvalidArguments() {
+	public void setTotalAmountShouldThrowsIllegalArgumentExceptionWhenInvalidArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			Financing f = new Financing(100000.0, 2000.0, 80);
-			f.setTotalAmount(200000.0);
+			f.setTotalAmount(110000.0);
 		});
 	}
 	
@@ -58,7 +54,7 @@ public class FinancingTest {
 		- Deve lançar IllegalArgumentException quando os dados não forem válidos
 */
 	@Test
-	public void setIncomeShouldUpdateValuesWhenValidArguments() {
+	public void setIncomeShouldUpdateDataWhenValidData() {
 		Financing f = new Financing(100000.0, 2000.0, 80);
 		double expectedValue = 3000.0;
 		f.setIncome(3000.0);
@@ -66,7 +62,7 @@ public class FinancingTest {
 	}
 	
 	@Test
-	public void setIncomeShouldThrowExceptionWhenInvalidArguments() {
+	public void setIncomeShouldThrowIllegalArgumentExceptionWhenInvalidAArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, ()->{
 			Financing f = new Financing(100000.0, 2000.0, 80);
 			f.setIncome(1500.0);
@@ -80,18 +76,18 @@ public class FinancingTest {
  
 */
 	@Test
-	public void setMounthShouldUpdateValuesWhenValidArguments() {
+	public void setMounthsShouldUpdateDataWhenValidArguments() {
 		Financing f = new Financing(100000.0, 2000.0, 80);
-		int expectedValue = 100;
-		f.setMonths(100);
+		int expectedValue = 81;
+		f.setMonths(81);
 		Assertions.assertEquals(expectedValue, f.getMonths());
 	}
 	
 	@Test
-	public void setMounthShouldThrowExceptionWhenInvalidArguments() {
+	public void setMounthsShouldThrowIllegalArgumentExceptionWhenInvalidArguments() {
 		Assertions.assertThrows(IllegalArgumentException.class, ()->{
 			Financing f = new Financing(100000.0, 2000.0, 80);
-			f.setMonths(40);
+			f.setMonths(79);
 		});
 	}
 	
@@ -100,7 +96,7 @@ public class FinancingTest {
 		- Deve calcular corretamente o valor da entrada
 */
 	@Test
-	public void entryShouldCalcCorretlyValues() {
+	public void entryShouldCalculateCorretlyValues() {
 		Financing f = new Financing(100000.0, 2000.0, 80);
 		double expectedValue = 20000.0;
 		double x = f.entry();
@@ -112,7 +108,7 @@ public class FinancingTest {
 		- Deve calcular corretamente o valor da prestação
 */
 	@Test
-	public void quotaShouldCalcCorretlyValues() {
+	public void quotaShouldCalculateCorretlyValues() {
 		Financing f = new Financing(100000.0, 2000.0, 80);
 		double expectedValue = 1000.0;
 		double x = f.quota();
